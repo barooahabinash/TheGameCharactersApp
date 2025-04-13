@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct CharacterListView: View {
-    @StateObject private var characterListModel = CharacterListViewModel()
+    @StateObject private var characterListViewModel = CharacterListViewModel()
 
     var body: some View {
         NavigationStack {
             VStack {
-                if characterListModel.isLoading {
+                if characterListViewModel.isLoading {
                     ProgressView("Loading characters...")
                 } else {
                     ScrollView {
                         LazyVStack(alignment: .leading, spacing: 16) {
-                            ForEach(characterListModel.characters) { character in
+                            ForEach(characterListViewModel.characters) { character in
                                 CharacterRowView(character: character)
                                     .onTapGesture {
-                                        characterListModel.selectedCharacter = character
+                                        characterListViewModel.selectedCharacter = character
                                     }
                             }
                         }
@@ -32,9 +32,9 @@ struct CharacterListView: View {
             .navigationTitle("Game Characters")
         }
         .onAppear {
-            characterListModel.loadCharacters()
+            characterListViewModel.loadCharacters()
         }
-        .sheet(item: $characterListModel.selectedCharacter) { character in
+        .sheet(item: $characterListViewModel.selectedCharacter) { character in
             CharacterDetailView(character: character)
         }
 

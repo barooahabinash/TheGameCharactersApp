@@ -17,20 +17,20 @@ class CharacterService: CharacterServiceProtocol {
     private let clientSecret = "01265ryjashn4sqt44e1w1onh1qhih"
 
     private var accessToken: String? {
-        get { UserDefaults.standard.string(forKey: "game_access_token") }
-        set { UserDefaults.standard.set(newValue, forKey: "game_access_token") }
+        get { UserDefaults.standard.string(forKey: "gameAccessToken") }
+        set { UserDefaults.standard.set(newValue, forKey: "gameAccessToken") }
     }
 
     private var tokenExpiryDate: Date? {
         get {
-            if let timestamp = UserDefaults.standard.object(forKey: "game_token_expiry") as? TimeInterval {
+            if let timestamp = UserDefaults.standard.object(forKey: "gameTokenExpiry") as? TimeInterval {
                 return Date(timeIntervalSince1970: timestamp)
             }
             return nil
         }
         set {
             let timestamp = newValue?.timeIntervalSince1970
-            UserDefaults.standard.set(timestamp, forKey: "game_token_expiry")
+            UserDefaults.standard.set(timestamp, forKey: "gameTokenExpiry")
         }
     }
 
