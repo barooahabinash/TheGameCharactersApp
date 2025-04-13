@@ -9,6 +9,7 @@ Features:
 * Placeholder images in case images are not avaialble in API.
 * Error handling.Log errors in console
 * Modal view to display images along with a dismiss button.
+* Save the session token until expiration to avoid retrieving it when not needed.
 
 Additional features that I think can be added:
 * Add tests
