@@ -35,7 +35,7 @@ struct CharacterDetailView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(maxHeight: 300)
+                .frame(maxHeight: .infinity)
             }
             else {
                 VStack {
@@ -48,7 +48,7 @@ struct CharacterDetailView: View {
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
-                .frame(maxHeight: 300)
+                .frame(maxHeight: .infinity)
             }
 
             Text(character.name)
