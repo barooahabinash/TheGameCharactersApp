@@ -12,8 +12,12 @@ Features:
 * Save the session token until expiration to avoid retrieving it when not needed.
 
 Additional features that I think can be added:
-* Add tests
+* Add an option for the user to choose a game (from a list of games) and then display the characters according to the game choosen.
 * The home screen with the game character list can be customized further to give it a better look and feel
 * Features like share game character details to social media
 * Search & Filter game characters
 * Add a splash screen
+
+ *Note: Currently, there are no tests included in the project.
+  Only game characters from the Characters endpoint is shown .
+  users do not have an option to choose a game*
