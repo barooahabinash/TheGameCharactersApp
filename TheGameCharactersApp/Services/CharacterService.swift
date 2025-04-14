@@ -79,6 +79,8 @@ class CharacterService: CharacterServiceProtocol {
         request.setValue(clientID, forHTTPHeaderField: "Client-ID")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = "fields name, mug_shot.url; limit 50;".data(using: .utf8)
+        // Example - To see game characters from Witcher uncomment line below and comment line above
+       // request.httpBody = "fields name, mug_shot.url;where games = 1942;limit 50;".data(using: .utf8)
 
         let (data, _) = try await URLSession.shared.data(for: request)
         return try JSONDecoder().decode([CharacterListModel].self, from: data)
